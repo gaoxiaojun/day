@@ -1,0 +1,13 @@
+[package]
+authors = ["gaoxiaojun"]
+edition = "2018"
+name = "rzen"
+version = "0.1.0"
+
+[dependencies]
+chrono = "0.4.19"
+[lib]
+crate-type = ["cdylib"]
+
+[dev-dependencies]
+csv = "1.1"
