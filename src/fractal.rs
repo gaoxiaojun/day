@@ -134,32 +134,3 @@ impl PartialEq for Fractal {
         self.time() == other.time()
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use crate::{candle::Candle, fractal::Fractal};
-    #[test]
-    fn test_distance_and_eq() {
-        let k1 = Candle::new(9, 2000000, 100.0, 100.0, 30.0, 30.0);
-        let k2 = Candle::new(10, 2000001, 150.0, 150.0, 120.0, 120.0);
-        let k3 = Candle::new(11, 2000002, 130.0, 130.0, 60.0, 60.0);
-
-        let k4 = Candle::new(12, 3000000, 90.0, 90.0, 60.0, 60.0);
-        let k5 = Candle::new(13, 3000001, 70.0, 70.0, 30.0, 30.0);
-        let k6 = Candle::new(14, 3000002, 80.0, 80.0, 50.0, 50.0);
-        let f1 = Fractal::new(k1, k2, k3);
-        let f2 = Fractal::new(k4, k5, k6);
-
-        let d1 = f1.distance(&f2);
-        let d2 = f2.distance(&f1);
-
-        assert_eq!(d1, d2);
-        assert_eq!(d1, 3);
-
-        // test eq
-        assert_ne!(f1, f2);
-
-        // test is_contain
-        assert!(f1.is_contain(&f2));
-    }
-}

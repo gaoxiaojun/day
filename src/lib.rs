@@ -13,4 +13,5 @@ pub mod sd2;
 //pub mod segment_detector;
 //pub mod sequence;
 pub(crate) mod test_util;
+pub(crate) mod test_fx;
 pub mod time;
